@@ -1,10 +1,12 @@
-/home/stepan/Documents/tickets-analyzer/src/main/java/com/rstep1/app/Analyzer.java
 /home/stepan/Documents/tickets-analyzer/src/main/java/com/rstep1/app/App.java
 /home/stepan/Documents/tickets-analyzer/src/main/java/com/rstep1/app/FileReader.java
+/home/stepan/Documents/tickets-analyzer/src/main/java/com/rstep1/app/PriceAnalyzer.java
 /home/stepan/Documents/tickets-analyzer/src/main/java/com/rstep1/app/TicketFilter.java
+/home/stepan/Documents/tickets-analyzer/src/main/java/com/rstep1/app/TimeAnalyzer.java
 /home/stepan/Documents/tickets-analyzer/src/main/java/com/rstep1/filemanager/JSONReader.java
 /home/stepan/Documents/tickets-analyzer/src/main/java/com/rstep1/filter/FlightPointsFilter.java
 /home/stepan/Documents/tickets-analyzer/src/main/java/com/rstep1/flight/FlightPriceAnalyzer.java
 /home/stepan/Documents/tickets-analyzer/src/main/java/com/rstep1/flight/FlightTimeAnalyzer.java
 /home/stepan/Documents/tickets-analyzer/src/main/java/com/rstep1/model/Ticket.java
 /home/stepan/Documents/tickets-analyzer/src/main/java/com/rstep1/model/TicketsWrapper.java
+/home/stepan/Documents/tickets-analyzer/src/main/java/com/rstep1/util/AirportTimeZone.java
