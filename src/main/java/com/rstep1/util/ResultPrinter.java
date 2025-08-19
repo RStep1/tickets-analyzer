@@ -15,6 +15,8 @@ public class ResultPrinter {
     }
 
     public static void printDifferenceAverageMedianPrice(double average, double median) {
+        System.out.println("Средняя цена: " + average);
+        System.out.println("Медиана цены: " + median);
         System.out.println("Разница между средней ценой и медианой:");
         System.out.println(average - median);
     }
