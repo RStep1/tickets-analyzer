@@ -39,9 +39,15 @@ public class App {
         Map<String, Duration> minFlightDurations = flightTimeAnalyzer.calculateMinFlightDurations();
 
         PriceAnalyzer priceAnalyzer = new FlightPriceAnalyzer(tickets);
-        double averagePrice = priceAnalyzer.calculateAverage();
-        double medianPrice = priceAnalyzer.calculateMedian();
-
+        double averagePrice = 0, medianPrice = 0;
+        try {
+            averagePrice = priceAnalyzer.calculateAverage();
+            medianPrice = priceAnalyzer.calculateMedian();
+        } catch (IllegalStateException e) {
+            System.err.println("Ошибка: " + e.getMessage());
+            return;
+        }
+        
         ResultPrinter.printFlightDurations(minFlightDurations);
         ResultPrinter.printDifferenceAverageMedianPrice(averagePrice, medianPrice);
     }

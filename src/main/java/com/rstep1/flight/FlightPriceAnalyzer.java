@@ -14,7 +14,9 @@ public class FlightPriceAnalyzer implements PriceAnalyzer {
     
     @Override
     public double calculateAverage() {
-        if (tickets.size() == 0) return 0;
+        if (tickets.size() == 0) {
+            throw new IllegalStateException("Невозможно вычислить среднее для пустого списка");
+        }
 
         long sum = 0;
         for (Ticket ticket : tickets) {
@@ -25,14 +27,17 @@ public class FlightPriceAnalyzer implements PriceAnalyzer {
 
     @Override
     public double calculateMedian() {
-        if (tickets.size() == 0) return 0;
+        if (tickets.size() == 0) {
+            throw new IllegalStateException("Невозможно вычислить медиану для путого списка");
+        }
         
         List<Integer> prices = tickets.stream().map(Ticket::price).sorted().toList();
         int size = prices.size();
+        int middleIndex = size / 2;
         if (size % 2 == 0) {
-            return (prices.get(size / 2) + prices.get(size / 2 - 1)) / 2.0;
+            return (prices.get(middleIndex) + prices.get(middleIndex - 1)) / 2.0;
         }
-        return prices.get(size / 2);
+        return prices.get(middleIndex);
     }
     
 }

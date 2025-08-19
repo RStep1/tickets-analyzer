@@ -4,7 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class CommandArgumentParser {
-    public static String parseFilePath(String[] args) throws IllegalArgumentException {
+    public static String parseFilePath(String[] args) {
         if (args.length == 0) {
             throw new IllegalArgumentException("Не указан путь к файлу. Пример: java -jar tickets-analyzer.jar tickets.json");
         }
