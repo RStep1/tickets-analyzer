@@ -1,0 +1,28 @@
+package com.rstep1.filemanager;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.rstep1.app.FileReader;
+import com.rstep1.model.Ticket;
+import com.rstep1.model.TicketsWrapper;
+
+public class JSONReader implements FileReader<Ticket> {
+    private ObjectMapper objectMapper = new ObjectMapper();
+
+    @Override
+    public List<Ticket> read(String filePath) {
+        try {
+            TicketsWrapper ticketsWrapper = 
+                objectMapper.readValue(new File(filePath), TicketsWrapper.class);
+            return ticketsWrapper.tickets();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            return Collections.emptyList();
+        }
+    }
+    
+}

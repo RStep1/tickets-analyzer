@@ -1,0 +1,5 @@
+com/rstep1/app/App.class
+com/rstep1/model/TicketsWrapper.class
+com/rstep1/app/FileReader.class
+com/rstep1/model/Ticket.class
+com/rstep1/filemanager/JSONReader.class
