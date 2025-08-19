@@ -10,9 +10,9 @@ public class FlightPointsFilter implements TicketFilter {
     private String firstAirport;
     private String secondAirport;
 
-    public FlightPointsFilter(String firstAirport, String secodeAirport) {
+    public FlightPointsFilter(String firstAirport, String secondAirport) {
         this.firstAirport = firstAirport;
-        this.secondAirport = secodeAirport;
+        this.secondAirport = secondAirport;
     }
 
     @Override
