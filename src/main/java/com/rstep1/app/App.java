@@ -1,9 +1,9 @@
 package com.rstep1.app;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 import com.rstep1.filemanager.JSONReader;
 import com.rstep1.filter.FlightPointsFilter;
@@ -15,13 +15,23 @@ import com.rstep1.util.ResultPrinter;
 
 public class App {
     public static void main(String[] args) {
-        Optional<String> maybePath = CommandArgumentParser.parseFilePath(args);
-        if (!maybePath.isPresent()) return;
+        String filePath = "";
+        try {
+            filePath = CommandArgumentParser.parseFilePath(args);
+        } catch (IllegalArgumentException e) {
+            System.err.println("Ошибка: " + e.getMessage());
+            return;
+        }
 
-        String filePath = maybePath.get();
         FileReader<Ticket> fileReader = new JSONReader();
-        List<Ticket> tickets = fileReader.read(filePath);
-        
+        List<Ticket> tickets;
+        try {
+            tickets = fileReader.read(filePath);
+        } catch (IOException e) {
+            System.err.println(String.format("Ошибка: не удалось прочитать файл %s. Проверьте корректность данных. " + e.getMessage(), filePath));
+            return;
+        }
+
         TicketFilter ticketFilter = new FlightPointsFilter("VVO", "TLV");
         tickets = ticketFilter.filter(tickets);
 
