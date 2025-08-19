@@ -9,6 +9,7 @@ import com.rstep1.filter.FlightPointsFilter;
 import com.rstep1.flight.FlightPriceAnalyzer;
 import com.rstep1.flight.FlightTimeAnalyzer;
 import com.rstep1.model.Ticket;
+import com.rstep1.util.ResultPrinter;
 
 public class App {
     public static void main(String[] args) {
@@ -21,12 +22,11 @@ public class App {
         TimeAnalyzer flightTimeAnalyzer = new FlightTimeAnalyzer(tickets);
         Map<String, Duration> minFlightDurations = flightTimeAnalyzer.calculateMinFlightDurations();
 
-        System.out.println(minFlightDurations);
-
         PriceAnalyzer priceAnalyzer = new FlightPriceAnalyzer(tickets);
         double averagePrice = priceAnalyzer.calculateAverage();
         double medianPrice = priceAnalyzer.calculateMedian();
 
-        System.out.println(averagePrice - medianPrice);
+        ResultPrinter.printFlightDurations(minFlightDurations);
+        ResultPrinter.printDifferenceAverageMedianPrice(averagePrice, medianPrice);
     }
 }
