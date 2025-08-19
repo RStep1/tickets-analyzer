@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.rstep1.filemanager.JSONReader;
 import com.rstep1.filter.FlightPointsFilter;
+import com.rstep1.flight.FlightPriceAnalyzer;
 import com.rstep1.flight.FlightTimeAnalyzer;
 import com.rstep1.model.Ticket;
 
@@ -22,6 +23,10 @@ public class App {
 
         System.out.println(minFlightDurations);
 
-        
+        PriceAnalyzer priceAnalyzer = new FlightPriceAnalyzer(tickets);
+        double averagePrice = priceAnalyzer.calculateAverage();
+        double medianPrice = priceAnalyzer.calculateMedian();
+
+        System.out.println(averagePrice - medianPrice);
     }
 }
