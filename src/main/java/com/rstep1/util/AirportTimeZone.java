@@ -13,7 +13,7 @@ public class AirportTimeZone {
 
     public static int getUtcOffset(String IATA) {
         if (!timeZones.containsKey(IATA)) {
-            throw new IllegalArgumentException(String.format("IATA code %s does not exist", IATA));
+            throw new IllegalArgumentException(String.format("ИАТА код %s не сущуствует", IATA));
         }
         return timeZones.get(IATA); 
     }
